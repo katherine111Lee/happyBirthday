@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>小可爱，生日快乐</title>
+    <script type="text/javascript" src="js/adaptive.js"></script>
+    <!-- 快捷图标 -->
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <style type="text/css">
+    * {
+        padding: 0px;
+        margin: 0px;
+    }
+    /*引入文字图标*/
+
+    html {
+        font-size: 100px;
+    }
+
+    body {
+        font-family: "microsoft yahei", "\534E\6587\7EC6\9ED1", Verdana, Arial, Helvetica, sans-serif;
+        font-size: 24px;
+        background: #ccc;
+        -webkit-user-select: none;
+        /*禁止选中内容*/
+        -webkit-text-size-adjust: none;
+        /*不调整（拉伸）字大小*/
+    }
+
+    .m_layout {
+        width: 100%;
+        background: rgba(255, 255, 255, 1);
+        -webkit-overflow-scrolling: touch;
+        max-width: 7.5rem;
+        min-width: 3.2rem;
+        margin: 0 auto;
+    }
+
+    @font-face {
+        font-family: "iconfont";
+        src: url('fonts/iconfont.eot');
+        /* IE9*/
+        src: url('fonts/iconfont.eot#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('fonts/iconfont.woff') format('woff'), /* chrome, firefox */
+        url('fonts/iconfont.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+        url('fonts/iconfont.svg#iconfont') format('svg');
+        /* iOS 4.1- */
+    }
+
+    .iconfont {
+        font-family: "iconfont" !important;
+        font-size: 16px;
+        font-style: normal;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-stroke-width: 0.2px;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    /*背景图片*/
+
+    body{
+        background:url(images/bg.jpg) no-repeat 0 0;
+        background-size: cover;
+        /*overflow: hidden;*/
+    }
+
+    .sheep {
+        width: 2.6rem;
+        height: 2.6rem;
+        perspective: 10rem;
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        bottom: 0.75rem;
+        margin: auto;
+    }
+
+    .sheep ._lis {
+        width: 2.5rem;
+        height: 2.5rem;
+        transform-style: preserve-3d;
+        transform-origin: 50%;
+        animation: slide 18s ease infinite;
+    }
+
+    .sheep ._lis ul {
+        list-style: none;
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .sheep ._lis ul li {
+        width: 2.5rem;
+        height: 2.5rem;
+        position: absolute;
+        border: 0.05rem solid #F0F8FF;
+    }
+
+    .sheep ._lis ul li img {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .sheep ._lis ul li:nth-child(1) {
+        transform: rotateY(0deg) translateZ(2.5rem);
+    }
+
+    .sheep ._lis ul li:nth-child(2) {
+        transform: rotateY(60deg) translateZ(2.5rem);
+    }
+
+    .sheep ._lis ul li:nth-child(3) {
+        transform: rotateY(120deg) translateZ(2.5rem);
+    }
+
+    .sheep ._lis ul li:nth-child(4) {
+        transform: rotateY(180deg) translateZ(2.5rem);
+    }
+
+    .sheep ._lis ul li:nth-child(5) {
+        transform: rotateY(240deg) translateZ(2.5rem);
+    }
+
+    .sheep ._lis ul li:nth-child(6) {
+        transform: rotateY(300deg) translateZ(2.5rem);
+    }
+    /*动画*/
+
+    @keyframes slide {
+        from {
+            transform: rotateY(0deg)
+        }
+        to {
+            transform: rotateY(360deg)
+        }
+    }
+    /*鼠标移上去*/
+
+    .sheep ._lis:hover {
+        animation-play-state: paused;
+    }
+
+    .sheep ._lis ul li:hover img {
+        transform: scale(1.1);
+        border: 0.02rem solid #F0F8FF;
+    }
+    /*按钮位置*/
+
+    .bg_music {
+        position: absolute;
+        top: 10%;
+        right: 10%;
+    }
+
+    .bg_music .btn_music {
+        width: 0.5rem;
+        height: 0.5rem;
+    }
+
+    .bg_music .iconfont {
+        font-size: 0.4rem;
+        color: #fff;
+        text-decoration: none;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="m_layout">
+        <div class="bg_music">
+            <p>
+                <audio id="music2" src="happyBirthday.mp3" autoplay loop="loop" controls="true"></audio>
+            </p>
+            <!-- <p class="btn_music">
+            <a href="javascript:playPause()" id="music_btn2" class="iconfont">&#xe616;</a>
+        </p> -->
+        </div>
+        <div class="sheep">
+            <div class="_lis">
+                <ul>
+                    <li><img src="images/1.jpg" /></li>
+                    <li><img src="images/2.jpg" /></li>
+                    <li><img src="images/3.jpg" /></li>
+                    <li><img src="images/4.jpg" /></li>
+                    <li><img src="images/5.jpg" /></li>
+                    <li><img src="images/6.jpg" /></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    function playPause() {
+        var music = document.getElementById("music2");
+        var music1 = document.getElementById("music_btn2");
+        if (music.paused) {
+            music.play();
+            music1.innerHTML = "&#xe616;";
+        } else {
+            music.pause();
+            music1.innerHTML = "&#xe69a;";
+        }
+    }
+    </script>
+</body>
+
+</html>
